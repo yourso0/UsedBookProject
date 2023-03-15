@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.usedbook.home.dao.IDao">
+	
+	<!-- 회원 관리 SQL. -->
+	<insert id="memberJoin">
+		INSERT INTO member_join(mid, mpw, mname, memail , mphone , maddress) VALUES(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}) 
+	</insert>
+	
+	<select id="checkId" resultType="int">
+		SELECT COUNT(*) FROM member_join WHERE mid=#{param1}
+	</select>
+	
+	<select id="checkIdAndPW" resultType="int">
+		SELECT COUNT(*) FROM member_join WHERE mid=#{param1} AND mpw=#{param2}
+	</select>
+	
+	<select id="getMemberInfo" resultType="com.usedbook.home.dto.MemberDto">
+		SELECT * FROM member_join WHERE mid=#{param1}
+	</select>
+	
+	<update id="memberModify">
+		UPDATE member_join SET mpw=#{param2}, mname=#{param3}, memail=#{param4}, mphone=#{param5}, maddress=#{param6} WHERE mid=#{param1}
+	</update>
+	
+	
+	
+	
+	<!-- 게시판 -->
+	
+	
+	<!--  책 -->
+	
+	<select id="Booklist" resultType="com.usedbook.home.dto.BooklistDto">
+			SELECT * FROM booktbl
+			
+	</select>
+	<select id="BookView" resultType="com.usedbook.home.dto.BooklistDto">
+		Select * from booktbl where btitle=#{param1}
+	</select>
+	
+	
+	
+	
+		<!--  고객 센터 -->
+	<insert id="writeQuestion">
+		INSERT INTO profile_board(qnum, qid, qname, qcontent, qemail) VALUES(profile_board_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}) 
+	</insert>
+	
+	<select id="questionList" resultType="com.usedbook.home.dto.QBoardDto">
+		SELECT * FROM
+			(SELECT A.*,Floor((ROWNUM-1)/#{amount}+1)PAGE,ROWNUM
+			FROM
+			(SELECT * FROM profile_board ORDER BY qnum DESC)A) 
+		WHERE PAGE= #{pageNum}
+	</select>
+	
+	<select id="questionView" resultType="com.usedbook.home.dto.QBoardDto">
+		SELECT * FROM profile_board WHERE qnum=#{param1}
+	</select>	
+	
+	<update id="questionModify">
+		UPDATE profile_board SET qname=#{param2}, qcontent=#{param3}, qemail=#{param4} WHERE qnum=#{param1}
+	</update>
+	
+	<delete id="questionDelete">
+		DELETE FROM profile_board WHERE qnum=#{param1}
+	</delete>
+	
+	<select id="boardAllCount" resultType="int">
+		SELECT COUNT(*) FROM profile_board
+	</select>
+	
+	<insert id="buyBook" >
+		INSERT INTO BuyBook (sid, sname , sphone , saddress , stitle , swriter , sgenre , sprice , sisbn , snum ) VALUES(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9},buybook_seq.nextval) 
+	</insert>
+	
+	<select id="probuy" resultType="com.usedbook.home.dto.BuyDto">
+		SELECT * FROM Buybook WHERE sid=#{param1}
+	</select>	
+	
+	<delete id="buyDelete">
+		DELETE FROM buybook WHERE snum=#{param1}
+	</delete>
+	<select id="NationList" resultType="com.usedbook.home.dto.BookNationDto">
+         SELECT * FROM booknation 
+   </select>
+   <select id="BookNationView" resultType="com.usedbook.home.dto.BooklistDto">
+      Select * from booktbl where nation=#{param1}
+   </select>
+   <select id="GenreNamelist" resultType="com.usedbook.home.dto.BookGenreDto">
+         SELECT * FROM bookgenre 
+   </select>
+   
+   <select id="BookGenreView" resultType="com.usedbook.home.dto.BooklistDto">
+      Select * from booktbl where bgenre=#{param1}
+   </select>
+
+
+	
+</mapper>
+	
+	

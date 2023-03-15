@@ -1,0 +1,37 @@
+
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+}	
+span.title01 {
+	font-size: 30px;
+	color: #1A120B;
+	font-family: Arial;
+	font-weight: bold;
+}
+span.title02 {
+	font-size: 15px;
+	color: #EF4B4B;
+	font-family: Arial;
+	font-weight: bold;
+}
+td.titleA01{
+	text-align: left;
+}
+td.titleA02{
+	text-align: right;
+}
+hr.line01{
+	width: 85%
+}
+img.img{
+	height: 250px;
+	width: 150px;
+}
+
+
+
+
+
