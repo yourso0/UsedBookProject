@@ -43,7 +43,7 @@
                  <td><input class="input_type01" type="text" name="mphone" value="${memberDto.mphone }"></td>
              </tr>   
              <tr>
-                 <td><span class="content_text01">집 주 소: </span></td>
+                 <td><span class="content_text01">주 소: </span></td>
                  <td><input class="input_type01" type="text" name="maddress"value=${memberDto.maddress }></td>
              </tr>
 					

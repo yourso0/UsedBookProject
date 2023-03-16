@@ -537,7 +537,7 @@ public class HomeController {
          return "BuyBook";
       }
       @RequestMapping(value = "/GenreBook")
-      public String GenreBook(Model model, Criteria cri, HttpServletRequest request,HttpSession session) {
+      public String GenreBook(Model model, Criteria cri, HttpServletRequest request,HttpSession session,HttpServletResponse response) {
          if(session.getAttribute("genre")==null|| "".equals(session.getAttribute("genre"))&& session.getAttribute("nation")==null|| "".equals(session.getAttribute("nation"))) {
             IDao dao = sqlSession.getMapper(IDao.class);
                List<BookGenreDto> genrename = dao.GenreNamelist();
@@ -558,7 +558,7 @@ public class HomeController {
       }
       
       @RequestMapping(value = "/buyOk")
-      public String buyOk(HttpServletRequest request ,HttpSession session, Model model) {
+      public String buyOk(HttpServletRequest request ,HttpSession session, Model model , HttpServletResponse response) throws IOException {
          
          String sid = request.getParameter("sid");
          String sname = request.getParameter("sname");
@@ -570,23 +570,27 @@ public class HomeController {
          String sprice = request.getParameter("sprice");
          String sisbn = request.getParameter("sisbn");
          
-         
-         
          IDao dao = sqlSession.getMapper(IDao.class);
          
          dao.buyBook(sid, sname , sphone , saddress ,stitle,swriter,sgenre,sprice, sisbn );
+         
+         ScriptUtils.alertAndMovePage(response, "구매가 완료 되었습니다.","index");
+         
+        
          
          return "redirect:index";
       }
       
       @RequestMapping(value = "/buydelete")
-      public String buydelete(HttpServletRequest request) {
+      public String buydelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
          
          int snum= Integer.parseInt(request.getParameter("snum"));
          
-         IDao dao = sqlSession.getMapper(IDao.class);
          
+         IDao dao = sqlSession.getMapper(IDao.class);
          dao.buyDelete(snum);
+         
+         ScriptUtils.alertAndMovePage(response, "구매가 취소 되었습니다.","profile");
          
          return "redirect:profile";
       }

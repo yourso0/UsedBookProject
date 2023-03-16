@@ -13,16 +13,20 @@
 <%@ include file="include/header.jsp" %>
 <%@ include file="include/menubar.jsp" %>
 <center>
+		<h2>상세정보</h2>
+	
    <table  width="35%" border="0" cellspacing="0" cellpadding="10">
+   	
       <tr>
-         <td rowspan="4"><img src="${pageContext.request.contextPath }/resources/img/${Bdto.bimg}" class="img3"></td><td>제목 :${Bdto.btitle }   </td>
+      
+         <td rowspan="4"><img src="${pageContext.request.contextPath }/resources/img/${Bdto.bimg}" class="img3"></td><td>제목 <h3>${Bdto.btitle }</h3>   </td>
       </tr>
       <tr>
-         <td>저자: ${Bdto.bname }</td>
+         <td>저자 <h3>${Bdto.bname }</h3></td>
       </tr>
     
      <tr>
-         <td>가격: ${Bdto.bprice }원</td>
+         <td>가격 <h3>${Bdto.bprice }원</h3></td>
       </tr>
       <tr>
          <td><input class="button_type01" type="button" value="구매하기" onclick="script:window.location='BuyBook?btitle=${Bdto.btitle }'"> </td>
@@ -32,7 +36,7 @@
          <h2>책소개</h2>
          <hr>
          <br>
-         ${Bdto.bstory }
+        ${Bdto.bstory }s
          </td>
       </tr>
    </table>

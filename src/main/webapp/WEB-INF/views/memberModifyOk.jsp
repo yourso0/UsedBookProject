@@ -36,11 +36,15 @@
 										<td><span class="content_text01">이 메 일 : </span></td>
 										<td>${memberDto.memail }</td>
 									</tr>
+									<tr>
+										<td><span class="content_text01">주소 : </span></td>
+										<td>${memberDto.maddress }</td>
+									</tr>
 									
 									<tr>
 										<td colspan="2">
 											<input class="button_type01" type="button" value="정보수정" onclick="script:window.location='memberModify'">&nbsp;&nbsp;
-											<input class="button_type01" type="button" value="수정취소" onclick="script:window.location='index'">
+											<input class="button_type01" type="button" value="홈으로" onclick="script:window.location='index'">
 										</td>
 									</tr>
 														

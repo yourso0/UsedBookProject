@@ -20,7 +20,7 @@
 		<br>
 		<br>
 		<tr>
-			<td><span class="title01">베스트셀러</span> <span class="title02 ">TOP6</span></td>		
+			<td><span class="title01">새로 올라온 책</span> <span class="title02 ">TOP6</span></td>		
 		</tr>	
 	</table>
 		<hr class="line01" >

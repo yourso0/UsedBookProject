@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/MembeBook.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/IMG.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/title.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content.css">
 <title>도서 사이트</title>
 </head>
 <body>
@@ -35,36 +37,41 @@
          <td><span class="text01" ><input type="hidden" value="${memberDto.mname }" name="sname">이&nbsp;&nbsp;&nbsp;&nbsp;름 : ${memberDto.mname } </span></td>
       </tr>
       <tr>
-               <td><span class="text01"><input type="hidden" value="${memberDto.mphone }" name="sphone">핸드폰 번호 : ${memberDto.mphone } </span></td>
+               <td><span class="text01"><input type="hidden" value="${memberDto.mphone }" name="sphone">핸드폰 번호 :  ${memberDto.mphone } </span></td>
         </tr>
           
         <tr>
-               <td><span class="text01" ><input type="hidden" value="${memberDto.maddress }" name="saddress">집 주 소: ${memberDto.maddress }</span></td>
+               <td><span class="text01" ><input type="hidden" value="${memberDto.maddress }" name="saddress">배 송 지 : ${memberDto.maddress }</span></td>
          </tr>
       </table>
       </center>      
       <center>
       <hr>
+      <h2>구매할 책 정보</h2>
+      <br><br>
             <table  width="100%" border="0" cellspacing="0" cellpadding="10">
                   <tr>
                      <td rowspan="4"><img  class="img" src="${pageContext.request.contextPath }/resources/img/${Bdto.bimg}" ></td>
-                     <td><span class="text01" ><input type="hidden" value="${Bdto.btitle }" name="stitle">제목 :${Bdto.btitle }</span></td>
+                     <td><span class="text01" ><input type="hidden" value="${Bdto.btitle }" name="stitle">제목 <h3>${Bdto.btitle }</h3></span></td>
                   </tr>
                   <tr>
-                     <td><span class="text01" ><input type="hidden" value="${Bdto.bname }" name="swriter">저자: ${Bdto.bname }</span></td>
+                     <td><span class="text01" ><input type="hidden" value="${Bdto.bname }" name="swriter">저자 <h3>${Bdto.bname }</h3></span></td>
                   </tr>
                   <tr>
-                     <td><span class="text01" ><input type="hidden" value="${Bdto.bgenre }" name="sgenre">장르: ${Bdto.bgenre }</span></td>
                   </tr>
+                 
                  <tr>
-                     <td><span class="text01" ><input type="hidden" value="${Bdto.bprice }" name="sprice">가격: ${Bdto.bprice }원</span></td>
+                     <td><span class="text01" ><input type="hidden" value="${Bdto.bprice }" name="sprice">가격 <h3>${Bdto.bprice }원</h3></span></td>
                   </tr>
                   <tr>
-                     <td><span class="text01" ><input type="hidden" value="${Bdto.isbn }" name="sisbn">isbn: ${Bdto.isbn }</span></td>
+                     <td><span class="text01" ><input type="hidden" value="${Bdto.isbn }" name="sisbn">isbn ${Bdto.isbn }</span></td>
                   </tr>
+                   
+                     <td><span class="text01" ><input type="hidden" value="${Bdto.bgenre }" name="sgenre"></span></td>
+                  
 
                   <tr>
-                     <td><input class="Button01" type="submit" value="구매하기"> </td>
+                     <td><input class="button_type01" type="submit" value="구매하기"> </td>
                   </tr>
                     </form>
             </table>
