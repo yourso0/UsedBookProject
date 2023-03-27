@@ -44,7 +44,7 @@
           </tr>
            <%} %>
           
-          </c:forEch>
+          </c:forEach>
 
             
       </table>

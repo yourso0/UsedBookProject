@@ -578,7 +578,7 @@ public class HomeController {
          
         
          
-         return "redirect:index";
+         return "redirect:profile";
       }
       
       @RequestMapping(value = "/buydelete")
